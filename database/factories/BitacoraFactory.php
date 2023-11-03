@@ -4,11 +4,16 @@ namespace Database\Factories;
 
 use App\Models\Bitacora;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-$factory->define(Bitacora::class, function (Factory $factory) {
 
-    return [
-        'id_usuario'=>Bitacora::inRandomOrder()->first()->id,
+class BitacoraFactory extends Factory
+{
+
+    public function definition(): array
+    {
+        return [
+             'id_bitacora'=>Bitacora::inRandomOrder()->first()->id,
             'bitacora'=>fake()->text(),
             'fecha'=>fake()->date(),
             'hora'=>fake()->time(),
@@ -16,6 +21,9 @@ $factory->define(Bitacora::class, function (Factory $factory) {
             'so'=>fake()->word(),
             'navegador'=>fake()->word(),
             'usuario'=>fake()->firstName()
-    ];
-});
+        ];
+    }
+
+
+}
 
